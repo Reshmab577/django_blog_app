@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    {% for post in posts %}
+
+    <img class="rounded-circle article-img" width="70" height="70" src="{{ post.Author.profile.image.url }}">
+    <div class="row mt-2">
+  <div class="col-md-4">
+    <div class="card">
+        <div class="card-header">{{post.title}}</div>
+        <div class="card-body">Content</div>
+        <div class="card-footer">By {{post.Author}} on {{post.date_posted|date:"F d, Y"}}</div>
+      </div>
+  </div>
+  
+</div>
+    {% endfor %}
+{% endblock content %}
+

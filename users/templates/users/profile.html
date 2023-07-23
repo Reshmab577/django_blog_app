@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{%  load crispy_forms_tags %}
+{% block content %}
+<table>
+  <tr>
+    <td><img src="{{ user.profile.image.url }}"></td>
+<td><h1>{{ user.username }}</h1></td>
+  </tr>
+{% comment %} <h1>{{ user.email }}</h1> {% endcomment %}
+<tr>
+  <td>
+<form class="form-horizontal" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      {{ u_form|crispy }}
+      {{ p_form|crispy }}
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">Update</button>
+        </div>
+      </div>
+    </td>
+    </tr>
+</form> 
+</table> 
+{% endblock content %}
